@@ -19,6 +19,9 @@ jobs:
       # Checks-out the repo
       - name: Checkout Repo
         uses: actions/checkout@v3
+         runs: 
+           using: 'node20'
+           main: 'main.js'
         
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
