@@ -3,7 +3,7 @@ run-name: Create Certificates
 on:
   workflow_dispatch:
   
-git remote add origin https://github.com/kayforse/Match-Secrets.git
+ $ git clone https://github.com/kayforse/Match-Secrets.git /var/folders/h1/8hndypj13nsbj5pn4xsnv1tm0000gn/T/d20240404-1974-uy6hgy -c http.extraheader='Authorization: Basic a2F5Zm9yc2U6Z2hwX0xjc2xtbm56azRQSlRqNktXYmdzWm9jdTRoTTRoQzJNQkZmZCA='
 git branch -M main
 git push -u origin main
 
