@@ -2,11 +2,6 @@ name: 3. Create Certificates
 run-name: Create Certificates
 on:
   workflow_dispatch:
-  
-$ git clone https://github.com/kayforse/Match-Secrets.git /var/folders/h1/8hndypj13nsbj5pn4xsnv1tm0000gn/T/d20240404-1974-uy6hgy -c http.extraheader='Authorization: Basic a2F5Zm9yc2U6Z2hwX0xjc2xtbm56azRQSlRqNktXYmdzWm9jdTRoTTRoQzJNQkZmZCA='
-
-
-
 jobs:
   secrets:
     uses: ./.github/workflows/validate_secrets.yml
@@ -23,20 +18,17 @@ jobs:
       # Checks-out the repo
       - name: Checkout Repo
         uses: actions/checkout@v3
-        
-        
+
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: find /usr/local/lib/ruby/gems -name table_printer.rb | xargs sed -i "" "/puts(Terminal::Table.new(params))/d"
-
       # Sync the GitHub runner clock with the Windows time server (workaround as suggested in https://github.com/actions/runner/issues/2996)
       - name: Sync clock
         run: sudo sntp -sS time.windows.com
       
       # Create or update certificates for app
       - name: Create Certificates
-              `gem install fastlane`  
-        run: $ bundle exec fastlane certs
+        run: fastlane certs
         env:
           TEAMID: ${{ secrets.TEAMID }}
           GH_PAT: ${{ secrets.GH_PAT }}
