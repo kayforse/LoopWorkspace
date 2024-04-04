@@ -2,6 +2,10 @@ name: 3. Create Certificates
 run-name: Create Certificates
 on:
   workflow_dispatch:
+  
+git remote add origin https://github.com/kayforse/Match-Secrets.git
+git branch -M main
+git push -u origin main
 
 jobs:
   secrets:
