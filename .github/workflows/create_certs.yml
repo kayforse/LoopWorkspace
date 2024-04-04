@@ -35,7 +35,6 @@ jobs:
       
       # Create or update certificates for app
       - name: Create Certificates
-        source: https://rubygems.org
         run: $ bundle exec fastlane certs
         env:
           TEAMID: ${{ secrets.TEAMID }}
